@@ -107,6 +107,9 @@
         width: 40vw;
         height: 60vw;
     }
+    .headingt{
+        font-size: 110%;
+    }
 }
 
 #header {
