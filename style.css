@@ -112,6 +112,10 @@
     }
 }
 
+body {
+    overflow: scroll;
+}
+
 #header {
     background: #30332E;
     padding: 2vh;
