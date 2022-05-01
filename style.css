@@ -38,6 +38,34 @@
         width: 350px;
         height: 500px;
     }
+    .rect {
+        border: none;
+        color: white;
+        padding: 1vw 3vw;
+        border-radius: 10px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        text-decoration: none;
+        font-size: 150%;
+        margin: 2px 4px;
+        cursor: pointer;
+        background-color: #7D8491;
+        width: 800px;
+        height: 150px;
+    }
+    .rectimg{
+        height: 150px;
+        width: auto;
+    }
+    .projimg{
+        width: 800px;
+        height: auto;
+    }
+    .rect:hover{
+        background-color: #30332E;
+    }
     .box:hover{
         background-color: #30332E;
     }
