@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SamSite</title>
+    <link rel="shortcut icon" href="images/other/favicon-32x32.png" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300&display=swap" rel="stylesheet"> 
+</head>
+<body style="margin-top: 0;margin-bottom: 0;margin-left: 0;margin-right: 0;" bgcolor="#F7F7FF">
+    <div id="container">
+        <div id="header">
+            <div class="big header2">Samuel Ruiz</div>
+            <div class="medium pcheader header2">
+                <div class="contact" style="font-family: 'Overpass Mono', monospace;">
+                    <a href="index.html" class="textbutton" style="font-family: 'Overpass Mono', monospace;">Home</a>
+                    <a href="projects.html" class="textbutton" style="font-family: 'Overpass Mono', monospace;">Projects</a>
+                    <a href="contact.html" class="textbutton" style="font-family: 'Overpass Mono', monospace;">Contact</a>
+                </div>
+            </div>
+        </div>
+        <div id="body">
+            <h1>Instructions</h1>
+            <p>Select the food you prefer the most, if you do not prefer either pick the least hated option. At the end of the quiz there will be a text box, please enter your favorite genre of music and click submit.</p>
+            <h1>Questions:</h1>
+            <p>1.</p>
+            <input type="radio" name="q1" id="radbut">Apple
+            <br>
+            <input type="radio" name="q1" id="radbut">Orange
+            <p>2.</p>
+            <input type="radio" name="q2">Tea
+            <br>
+            <input type="radio" name="q2">Coffee
+            <p>3.</p>
+            <input type="radio" name="q3">Bacon
+            <br>
+            <input type="radio" name="q3">Sausage
+            <p>4.</p>
+            <input type="radio" name="q4">Chicken
+            <br>
+            <input type="radio" name="q4">Fish
+            <p>5.</p>
+            <input type="radio" name="q5">Cereal
+            <br>
+            <input type="radio" name="q5">Oatmeal
+            <p>6.</p>
+            <input type="radio" name="q6">Pizza
+            <br>
+            <input type="radio" name="q6">Burger
+            <p>7.</p>
+            <input type="radio" name="q7">Smoothe
+            <br>
+            <input type="radio" name="q7">Milkshake
+            <p>8.</p>
+            <input type="radio" name="q8">Soup
+            <br>
+            <input type="radio" name="q8">Salad
+            <p>9.</p>
+            <input type="radio" name="q9" value='waffles'>Waffles
+            <br>
+            <input type="radio" name="q9" value='pancakes'>Pancakes
+            <p>10.</p>
+            <input type="radio" name="q10">Fruits
+            <br>
+            <input type="radio" name="q10">Vegetables
+            <p>11.</p>
+            <input type="radio" name="q11">Vanilla
+            <br>
+            <input type="radio" name="q11">Chocolate
+            <p>12.</p>
+            <input type="radio" name="q12">Garlic
+            <br>
+            <input type="radio" name="q12">Onions
+        </div>
+        <form>
+            <label>Favorite Genre:</label>
+            <input type="text" id="fName">
+            <br>
+            <!-- set button onClick method to call function we defined passing input values as parameters -->
+            <button type="button" onclick="callAPI(document.getElementById('fName').value,document.querySelector('input[name=q9]:checked').value)">Enter</button>
+        </form>
+    </div>
+    <script defer>
+        // define the callAPI function that takes a first name and last name as parameters
+        var callAPI = (firstName,lastName)=>{
+            // instantiate a headers object
+            var myHeaders = new Headers();
+            // add content type header to object
+            myHeaders.append("Content-Type", "application/json");
+            // using built in JSON utility package turn object to string and store in a variable
+            var raw = JSON.stringify({"firstName":firstName,"lastName":lastName});
+            // create a JSON object with parameters for API call and store in a variable
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+            };
+            // make API call with parameters and use promises to get response
+            fetch("https://1l0f1nbs49.execute-api.us-west-2.amazonaws.com/dev", requestOptions)
+            .then(response => window.location.href = "thank.html")
+            .then(result => alert(JSON.parse(result).body))
+            .catch(error => console.log('error', error));
+        }
+    </script>
+</body>
+
+</html>

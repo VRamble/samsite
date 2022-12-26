@@ -13,15 +13,15 @@
     .button {
         border: none;
         color: white;
-        padding: 15px 32px;
+        padding: 3vw 1vw;
         border-radius: 10px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
-        font-size: 16px;
+        font-size: 150%;
         margin: 4px 2px;
         cursor: pointer;
-        background-color: #16DB65;
+        background-color: #7D8491;
     }
     .box {
         border: none;
@@ -37,6 +37,9 @@
         background-color: #7D8491;
         width: 350px;
         height: 500px;
+    }
+    .radbut{
+        display: inline-block;
     }
     .rect {
         border: none;
@@ -73,7 +76,7 @@
         color:darkgrey;
     }
     .button:hover{
-        background-color: #058C42;
+        background-color: #30332E;
     }
     .header2{
         display: inline-block;
